@@ -1,0 +1,51 @@
+[versions]
+agp = "9.4.0"
+coreKtx = "1.10.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+lifecycleRuntimeKtx = "2.6.1"
+activityCompose = "1.8.0"
+kotlin = "2.2.10"
+composeBom = "2026.02.01"
+navigationCompose = "2.10.1"
+# 图标库单独锁 1.7.8：新版 Compose 已不再把 material-icons-core
+# 作为 material3 的传递依赖，必须显式声明。这个库本身停在 1.7.x
+# （官方已停止更新），但它只是矢量图标数据 + Icons 对象，API 稳定，可以继续用。
+composeIcons = "1.7.8"
+mediapipeGenai = "0.10.27"
+# 嵌入式 HTTP 服务器。用它而不是自己拿 ServerSocket 撸一个：
+# OpenAI 兼容接口需要 SSE 流式响应（chunked transfer encoding）、
+# 并发连接、HTTP/1.1 分块解析，这些手写极易出隐蔽 bug。
+# NanoHTTPD 是单 jar、无传递依赖、Android 上用得很广。
+nanohttpd = "2.3.1"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material-icons-core = { group = "androidx.compose.material", name = "material-icons-core", version.ref = "composeIcons" }
+# 导航。用 Navigation Compose（不是老的 Fragment 导航），
+# 它把路由、返回栈、页面参数都放在 Compose 里，适合纯 Compose 项目。
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+# MediaPipe 的 LLM 推理 AAR。官方已标为 maintenance-only，
+# 推荐迁到 LiteRT-LM，但它集成最简单（一个依赖，不用编 NDK），
+# 先用它把链路跑通，之后再评估换 LiteRT-LM。
+mediapipe-tasks-genai = { group = "com.google.mediapipe", name = "tasks-genai", version.ref = "mediapipeGenai" }
+# 嵌入式 HTTP 服务器，用来对外提供 OpenAI 兼容的中转接口
+nanohttpd = { group = "org.nanohttpd", name = "nanohttpd", version.ref = "nanohttpd" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

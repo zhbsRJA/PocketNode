@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_service_description">Allow the PocketNode agent to operate your device on your behalf: tap the screen, swipe, type text, and go back.
+
+Actions are performed only after you enable the "Allow agent to control device" switch inside the app. It is off by default.
+
+Once enabled, anything that can trigger the agent gains the same gesture capability as you do, including tapping payment buttons, sending messages, and deleting data. Enable it only if you understand the risk, and turn it off when not in use.</string>
+
+    <string name="accessibility_service_summary">Let the agent tap and operate the screen for you</string>
+
+    <!-- ══ Bottom navigation ══ -->
+    <string name="nav_chat">Chat</string>
+    <string name="nav_models">Models</string>
+    <string name="nav_service">Service</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- ══ Settings ══ -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_bg_header">These settings affect background operation</string>
+    <string name="settings_bg_desc_1">Manufacturers restrict background activity by default to keep apps</string>
+    <string name="settings_bg_desc_2">from running freely. PocketNode\'s downloads, model loading, and</string>
+    <string name="settings_bg_desc_3">relay service all depend on staying resident in the background.</string>
+
+    <string name="settings_battery_title">Ignore battery optimization</string>
+    <string name="settings_battery_on">Whitelisted. The system will not restrict background work.</string>
+    <string name="settings_battery_off">Not whitelisted. Downloads and inference may freeze when the screen is off.</string>
+    <string name="settings_battery_btn_on">Enabled</string>
+    <string name="settings_battery_btn_off">Enable</string>
+
+    <string name="settings_autostart_title">Enable autostart</string>
+    <string name="settings_autostart_desc">Allow the app to restore itself after a reboot</string>
+    <string name="settings_autostart_btn">Open settings</string>
+
+    <string name="settings_language_title">Language</string>
+    <string name="settings_language_desc">Follows the system by default. Choose one to pin it.</string>
+
+    <string name="settings_manual_hint">The app cannot grant these permissions itself. Please adjust them in Settings.</string>
+
+    <string name="settings_why_title">Why this cannot be one tap</string>
+    <string name="settings_why_1">For security, Android does not let an app grant itself these permissions. Otherwise any installed program could make itself unkillable, and power management would be meaningless.</string>
+    <string name="settings_why_2">Autostart has no unified API. Each vendor implements its own, so the app tries them one by one. This page will route you to the right screen where possible, but the final switch is still yours to flip.</string>
+<!-- ══ Chat ══ -->
+    <string name="chat_model_not_ready">No model loaded. Go to Models and tap Load into memory.</string>
+    <string name="chat_generating">Generating…</string>
+    <string name="chat_empty_reply">(The model returned no content)</string>
+    <string name="chat_error_prefix">Error: </string>
+    <string name="chat_state_ready">Ready</string>
+    <string name="chat_state_loading">Loading</string>
+    <string name="chat_state_generating">Generating</string>
+    <string name="chat_state_failed">Failed</string>
+    <string name="chat_state_idle">Not loaded</string>
+    <string name="chat_input_hint">Type a message…</string>
+    <string name="chat_banner_idle">No model loaded. Download one in Models then tap Load into memory.</string>
+    <string name="chat_banner_loading">Loading model…</string>
+    <string name="chat_banner_failed">Model failed to load: </string>
+<!-- ══ Models ══ -->
+    <string name="models_title">Models</string>
+    <string name="models_import">Import</string>
+    <string name="models_importing">Importing…</string>
+    <string name="models_import_failed">Import failed</string>
+    <string name="models_import_title">Import model</string>
+    <string name="models_import_selected">Selected: %1$s</string>
+    <string name="models_private_title">Models are stored in private app storage</string>
+    <string name="models_private_current">Current path: %1$s</string>
+    <string name="models_private_desc">Uninstalling the app deletes them too. To keep them in /storage/emulated/0/%1$s instead, grant the permission first.</string>
+    <string name="models_grant">Grant permission</string>
+    <string name="models_unknown_file">Unknown file</string>
+    <string name="models_name">Name</string>
+    <string name="models_note">Description (optional)</string>
+    <string name="models_note_hint">e.g. Qwen2.5 3B for drawing</string>
+    <string name="models_local_import">Local import</string>
+    <string name="models_file_lost">File missing. Import it again.</string>
+    <string name="models_remove">Remove</string>
+    <string name="models_download">Download</string>
+    <string name="models_partial">%1$s downloaded, incomplete</string>
+    <string name="models_resume">Resume</string>
+    <string name="models_delete_file">Delete file</string>
+    <string name="models_verifying">Verifying integrity…</string>
+    <string name="models_failed">Failed: %1$s</string>
+    <string name="models_retry">Retry</string>
+    <string name="models_loaded">Loaded into memory</string>
+    <string name="models_ready">Ready</string>
+    <string name="models_loading">Loading model…</string>
+    <string name="models_load_cost">Loaded in %1$d ms</string>
+    <string name="models_unload">Unload from memory</string>
+    <string name="models_delete">Delete this model to free space</string>
+    <string name="models_delete_confirm_title">Delete local file?</string>
+    <string name="models_delete_confirm_body">The model file for "%1$s" will be deleted, freeing %2$s. You will need to download it again to use it.</string>
+    <string name="models_delete_confirm_body_nosize">The model file for "%1$s" will be deleted. You will need to import it again to use it.</string>
+    <string name="models_go_chat">Go to Chat to start using it</string>
+    <string name="models_unsupported">Unsupported by the current engine</string>
+    <string name="models_load">Load into memory</string>
+    <string name="models_last_failed">Last load failed: %1$s (see the log file for the full stack trace)</string>
+    <string name="models_processing">Processing…</string>
+    <string name="models_resumable"> · resumable</string>
+    <string name="models_file_lost_short">File missing</string>
+<!-- ══ Common ══ -->
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_delete">Delete</string>
+<!-- ══ Service ══ -->
+    <string name="svc_title">Service</string>
+    <string name="svc_switch_title">Serve to network</string>
+    <string name="svc_running">Running · port %1$d</string>
+    <string name="svc_stopped">Stopped</string>
+    <string name="svc_start_failed">Failed to start: %1$s</string>
+    <string name="svc_no_model">No model is loaded. The service can start, but requests will return model_not_loaded. Load one on the Models page first.</string>
+    <string name="svc_conn_info">Connection info</string>
+    <string name="svc_conn_hint">The address and key appear here once the service starts</string>
+    <string name="svc_no_lan">No LAN address available. Check that WiFi is connected.</string>
+    <string name="svc_base_url">Endpoint URL for the client Base URL</string>
+    <string name="svc_new">New</string>
+    <string name="svc_other_addrs">Other addresses on this device: %1$s</string>
+    <string name="svc_usage">Usage</string>
+    <string name="svc_requests">Requests</string>
+    <string name="svc_errors">Errors</string>
+    <string name="svc_last_error">Last error: %1$s</string>
+    <string name="svc_recent">Recent requests</string>
+    <string name="svc_clear">Clear</string>
+    <string name="svc_howto">How to use</string>
+    <string name="svc_howto_body">Any OpenAI-compatible client can connect. Fill in two fields:\n  · Base URL: the address above\n  · API Key: the key above\nThe model name can be anything; the endpoint only serves the model loaded locally.</string>
+    <string name="svc_sec_1">⚠️ This is a LAN endpoint without encryption. The other side must be on the same WiFi.</string>
+    <string name="svc_sec_2">Do not forward this port to the internet. There is no rate limiting and no request size limit.</string>
+    <string name="svc_sec_3">Exposing it is equivalent to handing your device to someone else.</string>
+    <string name="svc_faq_1">I enabled the switch but nothing happens</string>
+    <string name="svc_agent_title">Allow agent to control device</string>
+    <string name="svc_agent_on_conn">Enabled · accessibility service connected</string>
+    <string name="svc_agent_on_noconn">Enabled, accessibility service not authorized</string>
+    <string name="svc_agent_off_conn">Disabled (accessibility service connected)</string>
+    <string name="svc_agent_off">Disabled</string>
+    <string name="svc_remote_title">Allow API key holders to control this device</string>
+    <string name="svc_remote_on">Open · %1$d remote actions performed</string>
+    <string name="svc_need_a11y">You still need to grant accessibility access in system settings, otherwise the switch has no effect.</string>
+    <string name="svc_a13_1">If the switch on the authorization page cannot be toggled or keeps reverting, note that since Android 13</string>
+    <string name="svc_a13_2">apps installed outside an app store are not allowed to enable accessibility services by default. This is an anti-fraud measure. Go to Settings → Apps → PocketNode → three-dot menu → Allow restricted settings first. The system does not mention this step, so it is easy to mistake for a broken switch.</string>
+    <string name="svc_open_app_info">Open app info</string>
+    <string name="svc_a11y_settings">Accessibility settings</string>
+    <string name="svc_agent_warn">Once enabled, the agent acts as you. Its reach is identical to yours, including payments, sending messages, and deleting data.</string>
+    <string name="svc_agent_note">Device control is not exposed through the relay by default. To open it you must enable the remote switch below, which resets to off on every launch.</string>
+    <string name="svc_agent_tip">Turn it off when not in use.</string>
+    <string name="svc_remote_warn">Remote control is open. Anyone holding the API key can read your screen and operate the UI.</string>
+    <string name="svc_remote_tip">If you forward the port to the internet while the relay is plain HTTP, the key has no protection in transit and can be captured by carriers or public WiFi. Use a TLS tunnel such as Tailscale or Cloudflare Tunnel instead of port forwarding.</string>
+    <string name="svc_revoke">Revoke remote control now</string>
+    <string name="svc_remote_confirm_title">Open remote control?</string>
+    <string name="svc_remote_confirm_lead">Once enabled, anyone holding the API key can</string>
+    <string name="svc_risk_1">· read everything on your screen (SMS codes, chats, bank balances)</string>
+    <string name="svc_risk_2">· tap any button (including confirming transfers or deleting data)</string>
+    <string name="svc_risk_3">· type arbitrary text</string>
+    <string name="svc_remote_risk">If you forward the port to the internet while the relay is plain HTTP, the key can be intercepted in transit.</string>
+    <string name="svc_remote_protect">Protections in place: actions are throttled to at least 600ms apart, remote control auto-closes after 10 minutes idle, and everything is logged. None of these withstand a leaked key.</string>
+    <string name="svc_remote_confirm_yes">I understand, enable</string>
+    <string name="svc_agent_log">Agent action log</string>
+    <string name="svc_read_screen">Read current screen</string>
+    <string name="svc_read_ok">Read OK, %1$d characters</string>
+    <string name="svc_read_fail">Read failed: %1$s</string>
+    <string name="svc_fail">Failed: %1$s</string>
+    <string name="svc_back_home">Returned to home screen</string>
+    <string name="svc_test_home">Test: go home</string>
+    <string name="svc_blocked">Blocked: %1$s</string>
+    <string name="svc_no_actions">No actions performed yet</string>
+    <string name="svc_last_used">Last used: </string>
+    <string name="svc_hide">Hide</string>
+    <string name="svc_show">Show</string>
+    <string name="svc_copy">Copy</string>
+    <string name="svc_edit">Edit</string>
+    <string name="svc_key_new_title">New API key</string>
+    <string name="svc_key_edit_title">Edit API key</string>
+    <string name="svc_key_label">Label (to tell devices apart)</string>
+    <string name="svc_key_label_hint">e.g. My laptop</string>
+    <string name="svc_key_value">Key value (you may write your own)</string>
+    <string name="svc_key_random">Generate one randomly</string>
+    <string name="svc_key_tip">Enter the same key as before and configured clients keep working after a reinstall.</string>
+    <string name="svc_key_min">At least %1$d characters.</string>
+    <string name="svc_key_create">Create</string>
+    <string name="svc_key_save">Save</string>
+<!-- ══ Built-in model descriptions ══ -->
+    <string name="model_note_qwen05b">Smallest tier. For low-end devices or quick verification. Answer quality is limited, but it runs.</string>
+    <string name="model_note_qwen15b">The balanced choice for Chinese conversation, trading answer quality against size. A good everyday default.</string>
+    <string name="model_note_deepseek">Chain-of-thought distilled model. Clearly stronger at math and logic than peers, but slower to generate. Not recommended for casual chat.</string>
+    <string name="model_note_phi4">Largest tier, aimed at flagship devices. Requires 12GB+ RAM and a Snapdragon 8-class processor.</string>
+<!-- ══ Agent ══ -->
+    <string name="agent_task_label">Task</string>
+    <string name="agent_task_hint">e.g. open Settings and set brightness to minimum</string>
+    <string name="agent_run">Run</string>
+    <string name="agent_stop">Stop</string>
+    <string name="agent_running">Running step %1$d of %2$d</string>
+    <string name="agent_finished">Finished in %1$d steps. Reason: %2$s</string>
+    <string name="agent_failed">Failed: %1$s</string>
+    <string name="agent_steps">Decision trace</string>
+<string name="agent_notif_title">Agent is working</string>
+    <string name="agent_notif_channel">Agent status</string>
+    <string name="agent_notif_channel_desc">Shows which step the agent is on</string>
+</resources>

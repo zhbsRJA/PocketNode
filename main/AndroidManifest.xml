@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      下载模型需要联网。
+      ACCESS_NETWORK_STATE 用来在下拉前先判断有没有网 ——
+      没有它的话，断网时下载会卡到超时才失败，用户会以为 App 死了。
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+      所有文件访问权限。
+
+      为什么需要：模型要放到 /storage/emulated/0/PNAI/ 让用户能用文件管理器
+      直接管理。而 Android 10（API 29）起的分区存储默认禁止 App 写外部存储的
+      任意目录，Android 11 起必须靠这条权限才能拿到真实文件路径。
+
+      为什么不用 SAF 文件夹授权（更"正规"）：
+      那玩意儿只给 URI，而 MediaPipe 的 LlmInference.createFromOptions
+      要的是**真实文件路径**。拿 URI 还得自己复制一份到私有目录再加载，
+      等于把文件放两遍，PNAI 目录也就白设了。
+
+      代价：这条权限在 Google Play 上会被拒（需要特殊资质申请）。
+      本项目不上架，自签名安装，所以可以用。
+
+      另外注意：这是特殊权限，**不能用 requestPermissions() 申请**，
+      必须跳到系统设置页让用户手动开。见 ModelStorage.buildPermissionIntent。
+    -->
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <!--
+      前台服务：后面「中转服务常驻」要用。
+      foregroundServiceType 必须声明具体类型，Android 14+ 不声明会直接崩。
+      dataSync 是最贴近「持续传输数据」的类型。
+    -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!--
+      请求忽略电池优化。
+
+      这个权限不授予任何直接能力 —— 它只是允许 App 弹出系统的
+      「是否允许后台运行」对话框（ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS）。
+      真正的开关在用户手里，系统弹窗里点「允许」才生效。
+
+      没有它的话，那个对话框根本弹不出来，只能把用户送到电池优化列表页
+      自己翻，多两步操作。
+    -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <application
+        android:name=".PocketNodeApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PocketNode">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.PocketNode"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+          下载保活服务。
+
+          foregroundServiceType="dataSync" 是必须的：Android 14 起，
+          前台服务不声明具体类型会直接抛 MissingForegroundServiceTypeException 崩掉。
+          dataSync 对应「持续的数据传输」，模型下载符合这个语义。
+
+          exported="false"：只允许本 App 内启动，不对外开放。
+        -->
+        <service
+            android:name=".download.DownloadService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!--
+          无障碍服务：智能体控制设备的唯一合法途径。
+
+          几个必须写的属性：
+            · exported="true"   —— 系统要能启动它。无障碍服务**必须**导出，
+                                   否则系统绑定不上。这正是它敏感的原因：
+                                   任何 App 只要拿到 BIND_ACCESSIBILITY_SERVICE
+                                   权限，就能与它通信。
+            · permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+                                —— 只有系统进程持有这个权限，别的 App 绑不了。
+                                   这条 + exported 是官方要求的固定搭配，缺一不可。
+            · meta-data         —— 指向配置 XML，声明能读窗口内容、能执行手势。
+
+          注意：声明了不等于能用。用户必须在系统设置里手动授权，
+          而且 App 内还有一个默认关闭的开关（DeviceController）。
+        -->
+        <!--
+          智能体保活服务。
+
+          为什么需要：Android 8 起会冻结后台进程，而智能体的任务本身
+          就要离开当前 App（比如"打开设置"）。没有前台服务的话，
+          App 一退到后台循环就停摆 —— 表现是"回到桌面就不干活了"。
+
+          foregroundServiceType 用 dataSync：Android 14+ 不声明类型会直接崩。
+          语义上 specialUse 更贴切，但那需要在应用商店提交用途说明，
+          自签名安装用 dataSync 更省事。
+        -->
+        <service
+            android:name=".agent.AgentService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <service
+            android:name=".agent.PocketNodeAccessibilityService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+    </application>
+
+</manifest>

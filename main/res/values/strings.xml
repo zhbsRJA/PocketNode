@@ -1,0 +1,195 @@
+<resources>
+    <string name="app_name">PocketNode</string>
+
+    <!-- 无障碍服务说明。系统在「无障碍 → 已安装的服务」里展示 -->
+    <string name="accessibility_service_description">允许 PocketNode 中的智能体代替你操作手机：点击屏幕、滑动、输入文字、返回上级。
+
+仅在你在应用内打开「允许智能体控制设备」开关后才会执行动作，默认关闭。
+
+开启后，任何能触发智能体的入口都将具备和你本人相同的手势能力（包括点击支付、发送消息、删除数据等）。请只在了解风险后开启，并在不使用时关闭。</string>
+
+    <string name="accessibility_service_summary">让智能体代替你点击和操作屏幕</string>
+
+    <!-- ══ 底部导航 ══ -->
+    <string name="nav_chat">对话</string>
+    <string name="nav_models">模型</string>
+    <string name="nav_service">服务</string>
+    <string name="nav_settings">设置</string>
+
+    <!-- ══ 设置页 ══ -->
+    <string name="settings_title">设置</string>
+    <string name="settings_bg_header">以下设置影响后台运行</string>
+    <string name="settings_bg_desc_1">手机厂商为防止应用在后台常驻 默认会施加限制 但 PocketNode 的下载</string>
+    <string name="settings_bg_desc_2">模型加载 对外服务都依赖后台常驻 不开启会被系统终止 表现为</string>
+    <string name="settings_bg_desc_3">「切换出去后返回即需重新加载」。</string>
+
+    <string name="settings_battery_title">忽略电池自动优化</string>
+    <string name="settings_battery_on">已加入白名单 系统不会因省电策略限制后台</string>
+    <string name="settings_battery_off">未加入白名单 系统可能在息屏后冻结下载与推理</string>
+    <string name="settings_battery_btn_on">已开启</string>
+    <string name="settings_battery_btn_off">去开启</string>
+
+    <string name="settings_autostart_title">前往开启自启动</string>
+    <string name="settings_autostart_desc">允许开机后自动恢复 不开启则每次重启都需要手动打开应用</string>
+    <string name="settings_autostart_btn">前往设置</string>
+
+    <string name="settings_language_title">语言</string>
+    <string name="settings_language_desc">默认跟随系统 手动选择后固定使用该语言</string>
+
+    <string name="settings_manual_hint">应用无法直接获取权限 请你自行在「设置」内调整。</string>
+
+    <string name="settings_why_title">为什么不能一键搞定</string>
+    <string name="settings_why_1">Android 出于安全考虑 不允许应用自行授予权限 否则任何安装的程序都可以避免被系统回收 省电机制将失去意义。</string>
+    <string name="settings_why_2">自启动功能没有统一接口 各厂商自行实现 因此只能逐一尝试 本页会尽量跳转到对应页面 但最终的开关仍需你手动打开。</string>
+<!-- ══ 对话页 ══ -->
+    <string name="chat_model_not_ready">模型尚未加载 请先前往「模型」页点击「加载到内存」</string>
+    <string name="chat_generating">正在生成…</string>
+    <string name="chat_empty_reply">（模型没有返回内容）</string>
+    <string name="chat_error_prefix">出错了 </string>
+    <string name="chat_state_ready">已就绪</string>
+    <string name="chat_state_loading">加载中</string>
+    <string name="chat_state_generating">生成中</string>
+    <string name="chat_state_failed">失败</string>
+    <string name="chat_state_idle">未加载</string>
+    <string name="chat_input_hint">说点什么…</string>
+    <string name="chat_banner_idle">尚未加载模型 请前往「模型」页下载后点击「加载到内存」</string>
+    <string name="chat_banner_loading">正在加载模型…</string>
+    <string name="chat_banner_failed">模型加载失败 </string>
+<!-- ══ 模型页 ══ -->
+    <string name="models_title">模型</string>
+    <string name="models_import">导入</string>
+    <string name="models_importing">正在导入…</string>
+    <string name="models_import_failed">导入失败</string>
+    <string name="models_import_title">导入模型</string>
+    <string name="models_import_selected">已选中 %1$s</string>
+    <string name="models_private_title">模型存储在应用私有目录</string>
+    <string name="models_private_current">当前路径 %1$s</string>
+    <string name="models_private_desc">卸载应用会一并删除。如需存放至 /storage/emulated/0/%1$s 自行管理，需要先授予权限。</string>
+    <string name="models_grant">去授权</string>
+    <string name="models_unknown_file">未知文件</string>
+    <string name="models_name">名称</string>
+    <string name="models_note">简介（可留空）</string>
+    <string name="models_note_hint">例如 Qwen2.5 3B 用于绘图</string>
+    <string name="models_local_import">本地导入</string>
+    <string name="models_file_lost">文件已丢失 请重新导入</string>
+    <string name="models_remove">移除</string>
+    <string name="models_download">下载</string>
+    <string name="models_partial">已下载 %1$s 未完成</string>
+    <string name="models_resume">继续下载</string>
+    <string name="models_delete_file">删除文件</string>
+    <string name="models_verifying">正在校验文件完整性…</string>
+    <string name="models_failed">失败 %1$s</string>
+    <string name="models_retry">重试</string>
+    <string name="models_loaded">已加载到内存</string>
+    <string name="models_ready">就绪</string>
+    <string name="models_loading">正在加载模型…</string>
+    <string name="models_load_cost">加载耗时 %1$d ms</string>
+    <string name="models_unload">从内存中卸载</string>
+    <string name="models_delete">卸载此模型以释放空间</string>
+    <string name="models_delete_confirm_title">删除本地文件？</string>
+    <string name="models_delete_confirm_body">「%1$s」的模型文件将被删除，可释放 %2$s 空间。之后如需使用需要重新下载。</string>
+    <string name="models_delete_confirm_body_nosize">「%1$s」的模型文件将被删除。之后如需使用需要重新下载。</string>
+    <string name="models_go_chat">前往「对话」页即可开始使用</string>
+    <string name="models_unsupported">当前引擎不支持该格式</string>
+    <string name="models_load">加载到内存</string>
+    <string name="models_last_failed">上次加载失败 %1$s（详细堆栈见日志文件）</string>
+    <string name="models_processing">处理中…</string>
+    <string name="models_resumable"> · 可续传</string>
+    <string name="models_file_lost_short">文件已丢失</string>
+<!-- ══ 通用 ══ -->
+    <string name="common_ok">知道了</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_delete">删除</string>
+<!-- ══ 服务页 ══ -->
+    <string name="svc_title">服务</string>
+    <string name="svc_switch_title">对外提供服务</string>
+    <string name="svc_running">运行中 · 端口 %1$d</string>
+    <string name="svc_stopped">已停止</string>
+    <string name="svc_start_failed">启动失败 %1$s</string>
+    <string name="svc_no_model">注意 当前尚未加载模型 服务可以启动 但请求会返回 model_not_loaded 请先到「模型」页加载。</string>
+    <string name="svc_conn_info">连接信息</string>
+    <string name="svc_conn_hint">启动服务后此处会显示地址与密钥</string>
+    <string name="svc_no_lan">没有可用的局域网地址 请检查是否已连接 WiFi。</string>
+    <string name="svc_base_url">接口地址 填写到客户端的 Base URL</string>
+    <string name="svc_new">新建</string>
+    <string name="svc_other_addrs">本机还有其他地址 %1$s</string>
+    <string name="svc_usage">用量</string>
+    <string name="svc_requests">请求</string>
+    <string name="svc_errors">错误</string>
+    <string name="svc_last_error">最近错误 %1$s</string>
+    <string name="svc_recent">最近访问</string>
+    <string name="svc_clear">清空</string>
+    <string name="svc_howto">使用方式</string>
+    <string name="svc_howto_body">任何兼容 OpenAI 的客户端都可以接入 填写两项即可\n  · Base URL 上面那个地址\n  · API Key 上面那个密钥\n模型名可任意填写 接口只会使用本地已加载的模型。</string>
+    <string name="svc_sec_1">⚠️ 这是局域网接口 未启用加密 对方必须与你连接同一个 WiFi。</string>
+    <string name="svc_sec_2">不要将该端口转发至公网 本服务没有限流 也没有请求大小限制</string>
+    <string name="svc_sec_3">暴露后等同于将设备完全交由他人操作。</string>
+    <string name="svc_faq_1">我明明开了开关怎么没用</string>
+    <string name="svc_agent_title">允许智能体控制设备</string>
+    <string name="svc_agent_on_conn">已开启 · 无障碍服务已连接</string>
+    <string name="svc_agent_on_noconn">已开启 无障碍服务未授权</string>
+    <string name="svc_agent_off_conn">已关闭（无障碍服务已连接）</string>
+    <string name="svc_agent_off">已关闭</string>
+    <string name="svc_remote_title">允许 API Key 拥有者控制此设备</string>
+    <string name="svc_remote_on">已开放 · 远程已执行 %1$d 次动作</string>
+    <string name="svc_need_a11y">还需要在系统设置中授权无障碍服务 否则开关打开也无法生效。</string>
+    <string name="svc_a13_1">如果授权页中的开关无法拨动或自动弹回 请注意 Android 13 起</string>
+    <string name="svc_a13_2">非应用商店安装的应用默认不允许开启无障碍服务 属于反诈机制 需要先前往「设置 → 应用 → PocketNode → 右上角三个点 → 允许受限设置」之后才能正常开启 系统不会提示这一步 容易误判为开关故障。</string>
+    <string name="svc_open_app_info">打开应用信息</string>
+    <string name="svc_a11y_settings">无障碍设置</string>
+    <string name="svc_agent_warn">开启后智能体将以你的身份操作设备 其可操作范围与你本人完全一致 包括支付 发送 删除等操作。</string>
+    <string name="svc_agent_note">本版本的中转接口默认不暴露设备控制 如需开放必须另行打开下方的远程开关 该开关在每次启动时会重置为关闭状态。</string>
+    <string name="svc_agent_tip">不使用时请关闭该开关。</string>
+    <string name="svc_remote_warn">远程控制已开放 任何持有 API Key 的人都可以读取屏幕内容并操作界面。</string>
+    <string name="svc_remote_tip">若将端口暴露至公网 明文 HTTP 传输的密钥在链路上无任何保护 运营商或公共 WiFi 均可抓包 建议改用 Tailscale 或 Cloudflare Tunnel 等带 TLS 的隧道 不要直接做端口转发。</string>
+    <string name="svc_revoke">立即收回远程控制</string>
+    <string name="svc_remote_confirm_title">确认开放远程控制？</string>
+    <string name="svc_remote_confirm_lead">开启后 任何持有 API Key 的人都可以</string>
+    <string name="svc_risk_1">· 读取你屏幕上的一切（短信验证码、聊天记录、银行余额）</string>
+    <string name="svc_risk_2">· 点击任意按钮（包括确认转账、删除数据）</string>
+    <string name="svc_risk_3">· 输入任意文字</string>
+    <string name="svc_remote_risk">如果将端口转发至公网 而中转为明文 HTTP 密钥在链路上可能被截获。</string>
+    <string name="svc_remote_protect">已采取的保护措施 动作间隔不低于 600ms 10 分钟无操作自动关闭 全程记录日志 但这些都无法对抗密钥泄露。</string>
+    <string name="svc_remote_confirm_yes">我明白 开启</string>
+    <string name="svc_agent_log">智能体动作记录</string>
+    <string name="svc_read_screen">读取当前界面</string>
+    <string name="svc_read_ok">读取成功 %1$d 字符</string>
+    <string name="svc_read_fail">读取失败 %1$s</string>
+    <string name="svc_fail">失败 %1$s</string>
+    <string name="svc_back_home">已回到桌面</string>
+    <string name="svc_test_home">测试 回桌面</string>
+    <string name="svc_blocked">被拦截 %1$s</string>
+    <string name="svc_no_actions">尚未执行过任何动作</string>
+    <string name="svc_last_used">最后使用 </string>
+    <string name="svc_hide">隐藏</string>
+    <string name="svc_show">显示</string>
+    <string name="svc_copy">复制</string>
+    <string name="svc_edit">编辑</string>
+    <string name="svc_key_new_title">新建 API Key</string>
+    <string name="svc_key_edit_title">编辑 API Key</string>
+    <string name="svc_key_label">备注（用于区分设备）</string>
+    <string name="svc_key_label_hint">例如 我的笔记本</string>
+    <string name="svc_key_value">Key 值（可自行填写）</string>
+    <string name="svc_key_random">随机生成一个</string>
+    <string name="svc_key_tip">填写与之前相同的 key 重装应用后已配置的客户端无需修改。</string>
+    <string name="svc_key_min">至少要 %1$d 位。</string>
+    <string name="svc_key_create">创建</string>
+    <string name="svc_key_save">保存</string>
+<!-- ══ 模型说明（内置） ══ -->
+    <string name="model_note_qwen05b">最小档 适用于配置较低的设备 或只需快速验证功能时使用 回答质量有限 但可正常运行</string>
+    <string name="model_note_qwen15b">中文对话的平衡选择 在回答质量与体积之间取得较好的折中 日常使用建议从这个开始</string>
+    <string name="model_note_deepseek">带思维链的蒸馏模型 数学与逻辑推理明显强于同级模型 但生成速度较慢 日常闲聊不建议使用</string>
+    <string name="model_note_phi4">体积最大的一档 面向旗舰设备 需要 12GB 以上内存和骁龙 8 系级别的处理器</string>
+<!-- ══ 智能体 ══ -->
+    <string name="agent_task_label">任务描述</string>
+    <string name="agent_task_hint">例如 打开设置把亮度调到最低</string>
+    <string name="agent_run">执行</string>
+    <string name="agent_stop">停止</string>
+    <string name="agent_running">正在执行 第 %1$d / %2$d 步</string>
+    <string name="agent_finished">已完成 %1$d 步 结束原因 %2$s</string>
+    <string name="agent_failed">执行失败 %1$s</string>
+    <string name="agent_steps">决策过程</string>
+<string name="agent_notif_title">智能体正在工作</string>
+    <string name="agent_notif_channel">智能体运行状态</string>
+    <string name="agent_notif_channel_desc">显示智能体当前执行到哪一步</string>
+</resources>

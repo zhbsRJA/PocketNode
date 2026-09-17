@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  网络安全配置。
+
+  背景：Android 9（API 28）起默认禁止明文 HTTP 流量。
+  我们的模型服务器是 http://154.40.44.75:8899，直接请求会抛：
+      java.io.IOException: Cleartext HTTP traffic to 154.40.44.75 not permitted
+
+  为什么不图省事直接在 manifest 上加 usesCleartextTraffic="true"：
+  那样等于对整个 App 放开明文 —— 以后接任何第三方接口都会静默降级成 HTTP，
+  中间人可以直接改内容。风险面太大。
+
+  正确做法是用 domain-config 做白名单，只给自建模型源开口子。
+  这样万一哪天漏了个 http:// 的第三方接口，系统还是会拦住并报错，
+  而不是悄悄地把数据明文发出去。
+
+  ⚠️ 注意：这里硬编码了服务器 IP。服务器换地址时必须同步改这个文件，
+  否则下载会重新报 cleartext 错误。长期方案是给模型源配上 HTTPS，
+  那时可以把这个 domain-config 整段删掉。
+-->
+<network-security-config>
+
+    <!-- 默认策略：禁止明文，只允许 HTTPS -->
+    <base-config cleartextTrafficPermitted="false" />
+
+    <!-- 例外：自建模型源，以及本地开发地址 -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- 模型文件服务器 -->
+        <domain includeSubdomains="true">154.40.44.75</domain>
+
+        <!-- 模拟器里访问宿主机（localhost）的固定地址 -->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+
+        <domain includeSubdomains="true">localhost</domain>
+    </domain-config>
+
+</network-security-config>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  无障碍服务配置。
+
+  ── 每个字段为什么这么设 ──────────────────────────────────────
+
+  accessibilityEventTypes / FeedbackType：
+    声明成最宽松的。这不是"随便填"——事件类型决定系统会把哪些
+    东西推给我们，选项是编译期固定的枚举。我们需要窗口变化事件
+    来感知"当前在哪个界面"，所以窗口状态类事件是必须的。
+
+  canRetrieveWindowContent="true"：
+    **必须开**。不开的话没法读屏幕上的控件树，智能体就是瞎的——
+    只能盲点坐标，什么都做不了。
+
+  canPerformGestures="true"：
+    **这是整个功能的核心**，也是风险所在。开了它才能用
+    dispatchGesture() 真的去点、去滑。不开只能读不能写。
+
+  flagRetrieveInteractiveWindows：
+    不光是当前活动窗口，还要能拿到所有交互窗口。有些界面
+    （比如带悬浮层、输入法、系统弹窗）光看活动窗口会漏掉
+    关键控件，导致点错位置。
+
+  flagReportViewIds：
+    让控件带上 viewIdResourceName。有了它智能体能按
+    "com.tencent.mm:id/send_btn" 这样的稳定 ID 定位，
+    而不是靠文字或坐标——后者在不同分辨率/语言下全会错位。
+
+  notificationTimeout="100"：
+    事件去抖动。设太短会被刷屏（一个滑动能产生几十个事件），
+    设太长会感觉卡顿。100ms 是手感上的平衡点。
+
+  ⚠️ 这个配置本身不具备任何"自我限制"能力。所有权限控制都在
+     DeviceController 里做 —— 见那边的注释。
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged|typeViewFocused|typeViewClicked"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagDefault|flagRetrieveInteractiveWindows|flagReportViewIds|flagIncludeNotImportantViews"
+    android:canRetrieveWindowContent="true"
+    android:canPerformGestures="true"
+    android:description="@string/accessibility_service_description"
+    android:summary="@string/accessibility_service_summary"
+    android:notificationTimeout="100" />
