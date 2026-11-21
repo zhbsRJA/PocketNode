@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  自适应图标定义。
+
+  Android 8.0（API 26）起用这套：系统把前景层和背景层分开绘制，
+  然后按各厂商自己的形状（圆形、方形、水滴形……）裁剪。
+  minSdk 是 28，所以所有设备都走这条路，不需要额外的位图回退。
+
+  ── 为什么要加 monochrome 层 ────────────────────────────────────
+  Android 13 起有「主题图标」：开启后桌面上所有图标会被系统重着色成
+  统一的单色，跟壁纸配色走。
+
+  不提供 monochrome 的话，主题图标模式下这个应用会**保持彩色** ——
+  在一排灰色图标里跳出来一个橙色的，很难看。
+
+  monochrome 层只取形状、忽略颜色（系统会把它整体染成单色），
+  所以这里画的是**实心填充的版本**，用色不重要，用 #000 即可。
+-->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background" />
+    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <monochrome android:drawable="@drawable/ic_launcher_monochrome" />
+</adaptive-icon>

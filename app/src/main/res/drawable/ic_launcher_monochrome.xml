@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  单色层，给 Android 13+ 的「主题图标」用。
+
+  ── 和前景层的区别 ──────────────────────────────────────────────
+  主题图标模式下，系统会把这一层**整体染成单色**（跟壁纸配色），
+  所以：
+
+    · 颜色无意义，统一用 #000
+    · **所有元素必须实心**。前景层里连线是半透明的，但在单色模式下
+      透明度会丢失，看起来和节点一样实 —— 那结构就糊了
+
+  所以这里改了个画法：**连线去掉，只留四个圆**。四个实心圆在单色下
+  依然能看出「一个大的带三个小的」这个结构，比四条糊掉的线清楚。
+
+  ── 尺寸和前景层保持一致 ────────────────────────────────────────
+  同一套坐标，切换主题图标时图形不会跳位。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 三个外围节点 -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M54,28 m-6.5,0 a6.5,6.5 0 1,0 13,0 a6.5,6.5 0 1,0 -13,0" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M76.5,67 m-6.5,0 a6.5,6.5 0 1,0 13,0 a6.5,6.5 0 1,0 -13,0" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M31.5,67 m-6.5,0 a6.5,6.5 0 1,0 13,0 a6.5,6.5 0 1,0 -13,0" />
+
+    <!-- 中心节点 -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M54,54 m-11,0 a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0" />
+</vector>

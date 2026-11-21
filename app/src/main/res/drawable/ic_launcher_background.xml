@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  应用图标背景层。
+
+  纯深炭黑，带一点点冷色（#14161C）。
+
+  为什么不直接用纯黑 #000000：纯黑在深色壁纸上会"融进去"，图标边界
+  消失。带一点亮度差异才能让图标从背景里浮出来。这个道理和 UI 里
+  不用纯黑做背景是一样的。
+
+  为什么不加渐变：见前景层的说明。另外背景色是**整块被遮罩裁剪**的，
+  渐变在不同遮罩下裁出来的部分不一样，同一个图标在圆形和方形遮罩下
+  看起来会像两个设计。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FF14161C"
+        android:pathData="M0,0 h108 v108 h-108 z" />
+</vector>

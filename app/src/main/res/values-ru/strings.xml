@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_service_description">Разрешить агенту PocketNode управлять устройством от вашего имени: нажимать на экран, проводить пальцем, вводить текст и возвращаться назад.
+
+Действия выполняются только после включения переключателя «Разрешить агенту управлять устройством» внутри приложения. По умолчанию он выключен.
+
+После включения всё, что может запустить агента, получает те же жесты, что и вы, включая нажатие кнопок оплаты, отправку сообщений и удаление данных. Включайте только осознав риск и выключайте, когда не пользуетесь.</string>
+
+    <string name="accessibility_service_summary">Позволить агенту нажимать и управлять экраном за вас</string>
+
+    <!-- ══ Нижняя навигация ══ -->
+    <string name="nav_chat">Чат</string>
+    <string name="nav_models">Модели</string>
+    <string name="nav_service">Сервис</string>
+    <string name="nav_settings">Настройки</string>
+
+    <!-- ══ Настройки ══ -->
+    <string name="settings_title">Настройки</string>
+    <string name="settings_bg_header">Эти настройки влияют на работу в фоне</string>
+    <string name="settings_bg_desc_1">Производители по умолчанию ограничивают фоновую активность</string>
+    <string name="settings_bg_desc_2">чтобы приложения не работали бесконтрольно. Но загрузки, загрузка моделей</string>
+    <string name="settings_bg_desc_3">и сервис PocketNode зависят от постоянной работы в фоне.</string>
+    <string name="settings_battery_title">Игнорировать оптимизацию батареи</string>
+    <string name="settings_battery_on">В белом списке. Система не ограничивает фоновую работу.</string>
+    <string name="settings_battery_off">Нет в белом списке. Загрузки и вывод могут замирать при выключенном экране.</string>
+    <string name="settings_battery_btn_on">Включено</string>
+    <string name="settings_battery_btn_off">Включить</string>
+    <string name="settings_autostart_title">Включить автозапуск</string>
+    <string name="settings_autostart_desc">Разрешить приложению восстанавливаться после перезагрузки</string>
+    <string name="settings_autostart_btn">Открыть настройки</string>
+    <string name="settings_language_title">Язык</string>
+    <string name="settings_language_desc">По умолчанию как в системе. Выберите язык, чтобы закрепить его.</string>
+    <string name="settings_manual_hint">Приложение не может выдать эти разрешения само. Настройте их в системных настройках.</string>
+    <string name="settings_why_title">Почему это нельзя сделать одним нажатием</string>
+    <string name="settings_why_1">В целях безопасности Android не позволяет приложению выдать разрешения самому себе. Иначе любая установленная программа могла бы стать неубиваемой, и энергосбережение потеряло бы смысл.</string>
+    <string name="settings_why_2">У автозапуска нет единого API. Каждый производитель реализует своё, поэтому приложение перебирает их по одному. Эта страница по возможности откроет нужный экран, но финальный переключатель всё равно за вами.</string>
+
+    <!-- ══ Чат ══ -->
+    <string name="chat_model_not_ready">Модель не загружена. Откройте «Модели» и нажмите «Загрузить в память».</string>
+    <string name="chat_generating">Генерация…</string>
+    <string name="chat_empty_reply">(Модель не вернула содержимое)</string>
+    <string name="chat_error_prefix">Ошибка: </string>
+    <string name="chat_state_ready">Готова</string>
+    <string name="chat_state_loading">Загрузка</string>
+    <string name="chat_state_generating">Генерация</string>
+    <string name="chat_state_failed">Ошибка</string>
+    <string name="chat_state_idle">Не загружена</string>
+    <string name="chat_input_hint">Введите сообщение…</string>
+    <string name="chat_banner_idle">Модель не загружена. Скачайте её в «Моделях» и нажмите «Загрузить в память».</string>
+    <string name="chat_banner_loading">Загрузка модели…</string>
+    <string name="chat_banner_failed">Не удалось загрузить модель: </string>
+
+    <!-- ══ Модели ══ -->
+    <string name="models_title">Модели</string>
+    <string name="models_import">Импорт</string>
+    <string name="models_importing">Импорт…</string>
+    <string name="models_import_failed">Ошибка импорта</string>
+    <string name="models_import_title">Импорт модели</string>
+    <string name="models_import_selected">Выбрано: %1$s</string>
+    <string name="models_private_title">Модели хранятся в приватном хранилище приложения</string>
+    <string name="models_private_current">Текущий путь: %1$s</string>
+    <string name="models_private_desc">При удалении приложения они тоже удалятся. Чтобы хранить их в /storage/emulated/0/%1$s, сначала выдайте разрешение.</string>
+    <string name="models_grant">Выдать разрешение</string>
+    <string name="models_unknown_file">Неизвестный файл</string>
+    <string name="models_name">Название</string>
+    <string name="models_note">Описание (необязательно)</string>
+    <string name="models_note_hint">например Qwen2.5 3B для рисования</string>
+    <string name="models_local_import">Локальный импорт</string>
+    <string name="models_file_lost">Файл отсутствует. Импортируйте снова.</string>
+    <string name="models_remove">Убрать</string>
+    <string name="models_download">Скачать</string>
+    <string name="models_partial">Скачано %1$s, не завершено</string>
+    <string name="models_resume">Продолжить</string>
+    <string name="models_delete_file">Удалить файл</string>
+    <string name="models_verifying">Проверка целостности…</string>
+    <string name="models_failed">Ошибка: %1$s</string>
+    <string name="models_retry">Повторить</string>
+    <string name="models_loaded">Загружено в память</string>
+    <string name="models_ready">Готова</string>
+    <string name="models_loading">Загрузка модели…</string>
+    <string name="models_load_cost">Загружено за %1$d мс</string>
+    <string name="models_unload">Выгрузить из памяти</string>
+    <string name="models_delete">Удалить модель, чтобы освободить место</string>
+    <string name="models_delete_confirm_title">Удалить локальный файл?</string>
+    <string name="models_delete_confirm_body">Файл модели «%1$s» будет удалён, освободится %2$s. Для дальнейшего использования потребуется скачать её заново.</string>
+    <string name="models_delete_confirm_body_nosize">Файл модели «%1$s» будет удалён. Для дальнейшего использования потребуется импортировать её заново.</string>
+    <string name="models_go_chat">Перейдите в «Чат», чтобы начать</string>
+    <string name="models_unsupported">Текущий движок не поддерживает этот формат</string>
+    <string name="models_load">Загрузить в память</string>
+    <string name="models_last_failed">Прошлая загрузка не удалась: %1$s (полный стек в файле журнала)</string>
+    <string name="models_processing">Обработка…</string>
+    <string name="models_resumable"> · можно продолжить</string>
+    <string name="models_file_lost_short">Файл отсутствует</string>
+
+    <!-- ══ Общее ══ -->
+    <string name="common_ok">Понятно</string>
+    <string name="common_cancel">Отмена</string>
+    <string name="common_delete">Удалить</string>
+
+    <!-- ══ Сервис ══ -->
+    <string name="svc_title">Сервис</string>
+    <string name="svc_switch_title">Открыть доступ по сети</string>
+    <string name="svc_running">Работает · порт %1$d</string>
+    <string name="svc_stopped">Остановлено</string>
+    <string name="svc_start_failed">Не удалось запустить: %1$s</string>
+    <string name="svc_no_model">Модель не загружена. Сервис запустится, но запросы будут возвращать model_not_loaded. Сначала загрузите модель в разделе «Модели».</string>
+    <string name="svc_conn_info">Данные подключения</string>
+    <string name="svc_conn_hint">Адрес и ключ появятся здесь после запуска сервиса</string>
+    <string name="svc_no_lan">Нет доступного адреса в локальной сети. Проверьте подключение к WiFi.</string>
+    <string name="svc_base_url">Адрес для поля Base URL в клиенте</string>
+    <string name="svc_new">Создать</string>
+    <string name="svc_other_addrs">Другие адреса этого устройства: %1$s</string>
+    <string name="svc_usage">Использование</string>
+    <string name="svc_requests">Запросы</string>
+    <string name="svc_errors">Ошибки</string>
+    <string name="svc_last_error">Последняя ошибка: %1$s</string>
+    <string name="svc_recent">Последние запросы</string>
+    <string name="svc_clear">Очистить</string>
+    <string name="svc_howto">Как пользоваться</string>
+    <string name="svc_howto_body">Подойдёт любой клиент, совместимый с OpenAI. Заполните два поля:\n  · Base URL: адрес выше\n  · API Key: ключ выше\nИмя модели можно любое: сервис отдаёт только локально загруженную модель.</string>
+    <string name="svc_sec_1">⚠️ Это локальная сеть без шифрования. Второй участник должен быть в том же WiFi.</string>
+    <string name="svc_sec_2">Не пробрасывайте этот порт в интернет. Здесь нет ограничения скорости и размера запросов.</string>
+    <string name="svc_sec_3">Открытие наружу равносильно передаче устройства другому человеку.</string>
+    <string name="svc_faq_1">Я включил переключатель, но ничего не работает</string>
+    <string name="svc_agent_title">Разрешить агенту управлять устройством</string>
+    <string name="svc_agent_on_conn">Включено · служба доступности подключена</string>
+    <string name="svc_agent_on_noconn">Включено, служба доступности не авторизована</string>
+    <string name="svc_agent_off_conn">Выключено (служба доступности подключена)</string>
+    <string name="svc_agent_off">Выключено</string>
+    <string name="svc_remote_title">Разрешить владельцам API-ключа управлять устройством</string>
+    <string name="svc_remote_on">Открыто · выполнено %1$d удалённых действий</string>
+    <string name="svc_need_a11y">Всё ещё нужно выдать доступ к спец. возможностям в системных настройках, иначе переключатель не даст эффекта.</string>
+    <string name="svc_a13_1">Если переключатель на странице авторизации не двигается или возвращается назад, учтите: начиная с Android 13</string>
+    <string name="svc_a13_2">приложения, установленные не из магазина, по умолчанию не могут включать службы доступности. Это мера против мошенничества. Сначала откройте Настройки → Приложения → PocketNode → меню из трёх точек → Разрешить ограниченные настройки. Система об этом не сообщает, поэтому легко принять это за поломку.</string>
+    <string name="svc_open_app_info">Открыть сведения о приложении</string>
+    <string name="svc_a11y_settings">Спец. возможности</string>
+    <string name="svc_agent_warn">После включения агент действует от вашего имени. Его возможности совпадают с вашими, включая оплату, отправку сообщений и удаление данных.</string>
+    <string name="svc_agent_note">Управление устройством по умолчанию не открыто через релей. Чтобы включить его, нужно отдельно активировать переключатель ниже; он сбрасывается в положение «выключено» при каждом запуске.</string>
+    <string name="svc_agent_tip">Выключайте, когда не пользуетесь.</string>
+    <string name="svc_remote_warn">Удалённое управление открыто. Любой владелец API-ключа может читать экран и управлять интерфейсом.</string>
+    <string name="svc_remote_tip">Если пробросить порт в интернет, а релей работает по обычному HTTP, ключ никак не защищён в канале и может быть перехвачен оператором или в публичном WiFi. Используйте туннель с TLS, например Tailscale или Cloudflare Tunnel, вместо проброса портов.</string>
+    <string name="svc_revoke">Немедленно отозвать удалённое управление</string>
+    <string name="svc_remote_confirm_title">Открыть удалённое управление?</string>
+    <string name="svc_remote_confirm_lead">После включения любой владелец API-ключа сможет</string>
+    <string name="svc_risk_1">· читать всё на вашем экране (СМС-коды, переписку, баланс банка)</string>
+    <string name="svc_risk_2">· нажимать любые кнопки (включая подтверждение переводов и удаление данных)</string>
+    <string name="svc_risk_3">· вводить произвольный текст</string>
+    <string name="svc_remote_risk">Если пробросить порт в интернет, а релей работает по обычному HTTP, ключ может быть перехвачен в канале.</string>
+    <string name="svc_remote_protect">Принятые меры: интервал между действиями не меньше 600 мс, автоматическое закрытие после 10 минут бездействия, полный журнал. Ничто из этого не спасёт при утечке ключа.</string>
+    <string name="svc_remote_confirm_yes">Понимаю, включить</string>
+    <string name="svc_agent_log">Журнал действий агента</string>
+    <string name="svc_read_screen">Прочитать текущий экран</string>
+    <string name="svc_read_ok">Прочитано, символов: %1$d</string>
+    <string name="svc_read_fail">Не удалось прочитать: %1$s</string>
+    <string name="svc_fail">Ошибка: %1$s</string>
+    <string name="svc_back_home">Возврат на главный экран</string>
+    <string name="svc_test_home">Тест: на главный экран</string>
+    <string name="svc_blocked">Заблокировано: %1$s</string>
+    <string name="svc_no_actions">Действий пока не было</string>
+    <string name="svc_last_used">Последнее использование: </string>
+    <string name="svc_hide">Скрыть</string>
+    <string name="svc_show">Показать</string>
+    <string name="svc_copy">Копировать</string>
+    <string name="svc_edit">Изменить</string>
+    <string name="svc_key_new_title">Новый API-ключ</string>
+    <string name="svc_key_edit_title">Изменить API-ключ</string>
+    <string name="svc_key_label">Метка (чтобы отличать устройства)</string>
+    <string name="svc_key_label_hint">например Мой ноутбук</string>
+    <string name="svc_key_value">Значение ключа (можно задать своё)</string>
+    <string name="svc_key_random">Сгенерировать случайный</string>
+    <string name="svc_key_tip">Укажите тот же ключ, что и раньше, и настроенные клиенты продолжат работать после переустановки.</string>
+    <string name="svc_key_min">Не менее %1$d символов.</string>
+    <string name="svc_key_create">Создать</string>
+    <string name="svc_key_save">Сохранить</string>
+
+    <!-- ══ Описания встроенных моделей ══ -->
+    <string name="model_note_qwen05b">Самая младшая модель. Для слабых устройств или быстрой проверки. Качество ответов ограничено, но она работает.</string>
+    <string name="model_note_qwen15b">Сбалансированный выбор для общения на китайском: компромисс между качеством и размером. Хороший вариант на каждый день.</string>
+    <string name="model_note_deepseek">Дистиллированная модель с цепочкой рассуждений. Заметно сильнее в математике и логике, но генерирует медленнее. Для обычной болтовни не рекомендуется.</string>
+    <string name="model_note_phi4">Самая крупная модель, рассчитана на флагманы. Требует 12 ГБ памяти и процессор уровня Snapdragon 8.</string>
+
+    <!-- ══ Агент ══ -->
+    <string name="agent_task_label">Задача</string>
+    <string name="agent_task_hint">например открой настройки и убавь яркость до минимума</string>
+    <string name="agent_run">Выполнить</string>
+    <string name="agent_stop">Остановить</string>
+    <string name="agent_running">Шаг %1$d из %2$d</string>
+    <string name="agent_finished">Завершено за %1$d шагов. Причина: %2$s</string>
+    <string name="agent_failed">Ошибка: %1$s</string>
+    <string name="agent_steps">Ход решений</string>
+    <string name="agent_notif_title">Агент работает</string>
+    <string name="agent_notif_channel">Состояние агента</string>
+    <string name="agent_notif_channel_desc">Показывает, на каком шаге находится агент</string>
+    <string name="chat_menu">Беседы</string>
+    <string name="chat_conversations">Беседы</string>
+    <string name="chat_new">Новая</string>
+    <string name="chat_import">Импорт</string>
+    <string name="chat_export">Экспорт</string>
+    <string name="chat_select">Выбрать</string>
+    <string name="chat_no_conversations">Бесед пока нет. Сообщение создаст её автоматически.</string>
+    <string name="chat_msg_count">Сообщений: %1$d</string>
+    <string name="chat_selected_count">Выбрано: %1$d</string>
+    <string name="chat_import_ok">Импортировано бесед: %1$d</string>
+    <string name="chat_import_fail">Ошибка импорта: %1$s</string>
+    <string name="chat_export_ok">Экспортировано бесед: %1$d</string>
+    <string name="chat_export_fail">Ошибка экспорта: %1$s</string>
+    <string name="chat_web_search">Веб-поиск. Когда включён, результаты передаются модели.</string>
+    <string name="chat_search_empty">Ничего не найдено. Отвечаю без результатов.</string>
+    <string name="chat_search_failed">Поиск не удался. Отвечаю без результатов.</string>
+    <string name="chat_more">Ещё</string>
+    <string name="chat_web_search_label">Веб-поиск</string>
+    <string name="about_title">О приложении</string>
+    <string name="about_role_dev">Разработка</string>
+    <string name="about_role_art">Арт</string>
+    <string name="about_role_design">Дизайн</string>
+    <string name="about_feedback">Обратная связь</string>
+    <string name="about_server_title">О серверах</string>
+    <string name="about_server_body">Серверы приложения стоят денег. Ускорение загрузки моделей и веб-поиск работают на нашем сервере. Если средств не хватит, мы можем отключить ускорение (вернув исходные ссылки) или полностью остановить загрузку моделей, оставив только локальный импорт. Веб-поиск тоже зависит от сервера. Содержание сервера обходится примерно в 400 юаней в год.</string>
+    <string name="about_donate_title">Поддержать нас</string>
+    <string name="about_donate_body">Если приложение оказалось полезным, вы можете отправить благодарность по контактам выше. В будущем возможны бонусы для поддержавших.</string>
+    <string name="about_version">Версия</string>
+    <string name="about_license">Открытый исходный код под AGPL-3.0. Файлы моделей принадлежат их правообладателям.</string>
+    <string name="settings_about">О приложении</string>
+    <string name="settings_about_sub">Авторы, контакты, о проекте</string>
+    <string name="common_back">Назад</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  每应用语言配置。
+
+  Android 13+ 的系统语言选择器会读这个文件，列出应用支持哪些语言。
+  不声明的话 setApplicationLocales() 可能不生效 —— 表现就是
+  「在应用内选了语言但界面不变」。
+
+  这里列的是 BCP-47 标签，和 res/values-xx 目录对应：
+    zh-CN → values（默认即中文）
+    en    → values-en
+    以此类推
+
+  同时列了 ms（马来语）—— 它和印尼语互通度很高，实际会回退到 id 的资源。
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="zh-CN" />
+    <locale android:name="en" />
+    <locale android:name="ru" />
+    <locale android:name="es" />
+    <locale android:name="fr" />
+    <locale android:name="de" />
+    <locale android:name="pt" />
+    <locale android:name="ja" />
+    <locale android:name="ko" />
+    <locale android:name="hi" />
+    <locale android:name="bn" />
+    <locale android:name="ar" />
+    <locale android:name="ur" />
+    <locale android:name="id" />
+    <locale android:name="ms" />
+</locale-config>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Play 版清单覆盖。
+
+  ── 这个文件怎么起作用 ──────────────────────────────────────────
+  Android 的 manifest merger 会把 src/main 的清单和这个文件合并。
+  `tools:node="remove"` 的意思是「把父清单里的这一项删掉」。
+
+  好处是**不用维护两份完整清单** —— main 里那份照常写，这里只写
+  「Play 版不要什么」。main 改了别的东西，Play 版自动跟着变。
+
+  ── 为什么要删这两项 ────────────────────────────────────────────
+  见 build.gradle.kts 里 flavor 那段注释。简单说：
+    · MANAGE_EXTERNAL_STORAGE 只批给文件管理器/杀毒/备份类应用
+    · 无障碍服务用于自动化操作过审风险高
+
+  ── 删完之后代码会崩吗 ──────────────────────────────────────────
+  不会 —— 配合 BuildCapabilities.kt 做能力降级。
+  但**必须真的降级**，光删清单不改代码会在调用点抛
+  SecurityException 或 ClassNotFoundException。
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 全盘文件访问：Play 只批给文件管理器类应用，普通应用一律驳回 -->
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:node="remove" />
+
+    <!-- 无障碍服务：用于自动化操作属于灰色地带，这里整个摘掉 -->
+    <application>
+        <service
+            android:name=".agent.PocketNodeAccessibilityService"
+            tools:node="remove" />
+    </application>
+
+</manifest>

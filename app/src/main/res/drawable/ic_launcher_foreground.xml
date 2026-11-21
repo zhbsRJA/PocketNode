@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  应用图标前景层。
+
+  ── 设计想法 ────────────────────────────────────────────────────
+  应用叫 PocketNode ——「口袋里的节点」。所以图形就是**一个节点**：
+  中心一个实心圆，连向三个外围节点，构成一个稳定的三角结构。
+
+  为什么不画手机轮廓：自适应图标在圆角/圆形/方形等各种遮罩下裁剪方式
+  不同，画手机的话四个角会被切掉。**只有居中的、对称的图形才能在所有
+  形状下都完整**。三角结构转动一下都好看，符合这个要求。
+
+  ── 为什么不用渐变 ──────────────────────────────────────────────
+  紫色/蓝色渐变是"AI 味"最重的视觉元素，看多了像模板。而且小图标上
+  渐变会糊成一团，不如纯色清楚。这里用**纯琥珀色 + 纯白**，对比拉满。
+
+  ── 尺寸 ────────────────────────────────────────────────────────
+  自适应图标画布 108×108，但只有中间 72×72 是安全区（各家遮罩最多
+  切到那里）。所以所有内容控制在距中心 33 以内：
+    中心节点 r=10，外围节点距中心 26、自身 r=5.5
+    最远点 26+5.5=31.5 < 33 ✓
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 中心到三个外围节点的连线。
+         用半透明白：既让结构完整，又不会抢中心节点的视觉重心。 -->
+    <path
+        android:strokeColor="#99FFFFFF"
+        android:strokeWidth="2.4"
+        android:strokeLineCap="round"
+        android:pathData="M54,54 L54,28" />
+    <path
+        android:strokeColor="#99FFFFFF"
+        android:strokeWidth="2.4"
+        android:strokeLineCap="round"
+        android:pathData="M54,54 L76.5,67" />
+    <path
+        android:strokeColor="#99FFFFFF"
+        android:strokeWidth="2.4"
+        android:strokeLineCap="round"
+        android:pathData="M54,54 L31.5,67" />
+
+    <!-- 三个外围节点 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,22.5 m-5.5,0 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M76.5,67 m-5.5,0 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M31.5,67 m-5.5,0 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0" />
+
+    <!-- 中心节点。琥珀色，比外围节点大一圈 —— 视觉重心在这里，
+         「你的手机是这个网络的核心」这个意思靠大小对比传达。 -->
+    <path
+        android:fillColor="#FFFFB020"
+        android:pathData="M54,54 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0" />
+</vector>
